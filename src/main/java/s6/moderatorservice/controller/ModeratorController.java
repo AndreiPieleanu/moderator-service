@@ -19,7 +19,7 @@ public class ModeratorController {
     @PostMapping("/predict")
     @CrossOrigin
     public Boolean generate(@RequestBody String text){
-        String flaskApiUrl = "http://localhost:5000/predict";  // Flask API URL
+        String flaskApiUrl = "http://hate-speech-ai-container:5000/predict";  // Flask API URL
 
         // Prepare the request body as JSON
         JSONObject requestJson = new JSONObject();
