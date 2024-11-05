@@ -1,4 +1,4 @@
-package s6.moderatorservice.service;
+package s6.moderatorservice.service.token;
 
 
 import s6.moderatorservice.configuration.AccessToken;

@@ -14,7 +14,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import s6.moderatorservice.configuration.AccessToken;
-import s6.moderatorservice.service.IAccessTokenDecoder;
+import s6.moderatorservice.service.token.IAccessTokenDecoder;
 import s6.moderatorservice.service.customexceptions.InvalidAccessTokenException;
 
 import java.io.IOException;

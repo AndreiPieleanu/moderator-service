@@ -1,4 +1,4 @@
-package s6.moderatorservice.service;
+package s6.moderatorservice.service.token;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
