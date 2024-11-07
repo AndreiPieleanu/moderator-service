@@ -8,7 +8,6 @@ import s6.moderatorservice.service.ModeratorService;
 
 @RestController
 @RequestMapping("/api/moderator")
-@CrossOrigin
 public class ModeratorController {
     private final ModeratorService moderatorService;
     private final RestTemplate restTemplate;
@@ -17,7 +16,6 @@ public class ModeratorController {
         this.restTemplate = new RestTemplate();
     }
     @PostMapping("/predict")
-    @CrossOrigin
     public Boolean generate(@RequestBody String text){
         String flaskApiUrl = "http://hate-speech-ai-container:5000/predict";  // Flask API URL
 

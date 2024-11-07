@@ -19,13 +19,6 @@ public class RabbitMQConsumer {
     public void handlePostCreatedEvent(PostCreatedEvent event) {
         // Call the function to check if the post is offensive
         Post post = Post.builder().text(event.getText()).userId(event.getUserId()).build();
-        if (moderatorService.isOffensive(event.getText())) {
-            System.out.println("Offensive post detected: " + event.getText());
-            post.setIsOffensive(true);
-            // Handle the offensive post (e.g., flag it, remove it, etc.)
-        } else {
-            System.out.println("Non-offensive post: " + event.getText());
-        }
         postDal.save(post);
     }
 
@@ -33,12 +26,6 @@ public class RabbitMQConsumer {
     public void handlePostUpdatedEvent(PostUpdatedEvent event) {
         // Check if the updated post is offensive
         Post post = Post.builder().text(event.getText()).userId(event.getUserId()).build();
-        if (moderatorService.isOffensive(event.getText())) {
-            System.out.println("Offensive updated post detected: " + event.getText());
-            // Handle the offensive post
-        } else {
-            System.out.println("Non-offensive updated post: " + event.getText());
-        }
         postDal.save(post);
     }
 }
