@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hate-speech-ai
+  labels:
+    app: hate-speech-ai
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hate-speech-ai
+  template:
+    metadata:
+      labels:
+        app: hate-speech-ai
+    spec:
+      containers:
+        - name: hate-speech-ai
+          image: trainingtexas/hate-speech-ai:latest
+          ports:
+            - containerPort: 5000
+          resources:
+            limits:
+              memory: "300Mi"
+              cpu: "200m"
+            requests:
+              memory: "128Mi"
+              cpu: "200m"
