@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - image: trainingtexas/hate-speech-ai:latest
-          name: hate-speech-ai-container
+          name: hate-speech-ai
           ports:
             - containerPort: 5000
               protocol: TCP

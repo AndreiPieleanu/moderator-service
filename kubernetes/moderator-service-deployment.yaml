@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - image: trainingtexas/moderator-service:latest
-          name: moderator-service-container
+          name: moderator-service
           ports:
             - containerPort: 8082
               protocol: TCP
