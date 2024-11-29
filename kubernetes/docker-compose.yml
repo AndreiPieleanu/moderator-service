@@ -1,8 +1,23 @@
 version: "3.9"
 services:
   moderator-service:
-    build:
-      context: kubernetes
-      dockerfile: ../Dockerfile
+    image: trainingtexas/moderator-service:latest
+    container_name: moderator-service
     ports:
       - "8082:8082"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://moderator-service-mysql:3310/moderator-service?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_moderatorNAME: root
+      SPRING_DATASOURCE_PASSWORD: admin
+    depends_on:
+      - moderator-service-mysql
+
+  moderator-service-mysql:
+    image: mysql:8.0
+    container_name: moderator-service-mysql
+    environment:
+      MYSQL_DATABASE: moderator-service
+      MYSQL_moderator: root
+      MYSQL_PASSWORD: admin
+    ports:
+      - "3310:3310"
