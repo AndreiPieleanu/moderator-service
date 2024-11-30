@@ -31,6 +31,6 @@ spec:
           image: mysql:8.0
           name: moderator-service-mysql
           ports:
-            - containerPort: 3310
+            - containerPort: 3306
               protocol: TCP
       restartPolicy: Always

@@ -11,6 +11,6 @@ spec:
   ports:
     - name: "3310"
       port: 3310
-      targetPort: 3310
+      targetPort: 3306
   selector:
     io.kompose.service: moderator-service-mysql
