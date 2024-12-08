@@ -1,11 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: C:\Users\Andrei\go\bin\kompose.exe convert -f docker-compose.yml
-    kompose.version: 1.34.0 (HEAD)
-  labels:
-    io.kompose.service: hate-speech-ai
   name: hate-speech-ai
 spec:
   replicas: 1
@@ -14,9 +9,6 @@ spec:
       io.kompose.service: hate-speech-ai
   template:
     metadata:
-      annotations:
-        kompose.cmd: C:\Users\Andrei\go\bin\kompose.exe convert -f docker-compose.yml
-        kompose.version: 1.34.0 (HEAD)
       labels:
         io.kompose.service: hate-speech-ai
     spec:
@@ -25,5 +17,15 @@ spec:
           name: hate-speech-ai
           ports:
             - containerPort: 5000
-              protocol: TCP
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
+      volumes:
+        - name: hate-speech-ai-pvc
+          persistentVolumeClaim:
+            claimName: hate-speech-ai-pvc
       restartPolicy: Always
